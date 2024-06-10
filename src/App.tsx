@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     axios
       .get<WeatherInterface>(
-        "https://api.openweathermap.org/data/2.5/weather?lat=48.70805&lon=44.5133&units=metric&lang=ru_ru&exclude=hourly&appid=d5dadd8cefa8601da8b2dc8ade114b5e"
+        "https://api.openweathermap.org/data/2.5/weather?lat=48.70805&lon=44.5133&units=metric&lang=ru&exclude=hourly&appid=d5dadd8cefa8601da8b2dc8ade114b5e"
       )
       .then((res) => setData(res.data));
   }, []);
@@ -40,12 +40,16 @@ function App() {
     >
       <main className="flex w-full flex-1 flex-col items-center justify-center px-4 text-center">
         {data?.weather && (
-          <div className="flex flex-col items-center justify-center bg-telegram-white">
+          <div className="flex flex-col items-center justify-center bg-telegram-white p-4 rounded-xl">
             <span className="text-telegram-black">{data.name}</span>
             <img
               src={`https://openweathermap.org/img/wn/${data?.weather[0].icon}@2x.png`}
-              alt={data?.weather[0].main}
+              alt={data?.weather[0].description}
             />
+            <span>
+              {data?.weather[0].description.charAt(0).toUpperCase() +
+                data?.weather[0].description.slice(1)}
+            </span>
             <span>{`${data.main.temp} °C (${data.main.feels_like} °C)`}</span>
             <span>{`${Math.round(
               data.main.pressure * 0.750064
@@ -56,23 +60,6 @@ function App() {
           </div>
         )}
       </main>
-
-      <footer
-        className="flex h-20 w-full items-center justify-center
-	  border-t border-t-telegram-black"
-      >
-        <a
-          className="flex items-center justify-center gap-2 text-telegram-black"
-          href="https://github.com/mauriciobraz/next.js-telegram-webapp"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className="text-telegram-link">
-            mauriciobraz/next.js-telegram-webapp
-          </span>
-        </a>
-      </footer>
     </div>
   );
 }
