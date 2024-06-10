@@ -40,7 +40,7 @@ function App() {
     >
       <main className="flex w-full flex-1 flex-col items-center justify-center px-4 text-center">
         {data?.weather && (
-          <div className="flex flex-col items-center justify-center bg-telegram-secondary-white">
+          <div className="flex flex-col items-center justify-center bg-telegram-white">
             <span className="text-telegram-black">{data.name}</span>
             <img
               src={`https://openweathermap.org/img/wn/${data?.weather[0].icon}@2x.png`}
