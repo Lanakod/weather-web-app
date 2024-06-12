@@ -4,7 +4,7 @@ import "./index.scss";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import { AppRoot, Placeholder } from "@telegram-apps/telegram-ui";
+import { AppRoot } from "@telegram-apps/telegram-ui";
 import { setBackgroundAsSecondary } from "./helpers/setBackgroundAsSecondary.ts";
 
 setBackgroundAsSecondary();

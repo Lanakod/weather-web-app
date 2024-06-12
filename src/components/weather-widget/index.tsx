@@ -1,15 +1,11 @@
 import {
   Button,
-  FixedLayout,
   Image,
-  List,
   Placeholder,
-  Section,
   Skeleton,
-  Text,
   Title,
 } from "@telegram-apps/telegram-ui";
-import { FC, useMemo } from "react";
+import { FC } from "react";
 import { WeatherInterface } from "../../interfaces/weather.interface";
 import { getWeatherText } from "../../helpers";
 
