@@ -1,17 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { WebAppProvider } from '@vkruglikov/react-telegram-web-app';
-import App from './App.tsx'
-import './index.css'
+import "@telegram-apps/telegram-ui/dist/styles.css";
+import "./index.scss";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-	<React.StrictMode>
-		<WebAppProvider
-			options={{
-				smoothButtonsTransition: true,
-			}}
-		>
-			<App />
-		</WebAppProvider>
-	</React.StrictMode>,
-)
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
+import { AppRoot, Placeholder } from "@telegram-apps/telegram-ui";
+import { setBackgroundAsSecondary } from "./helpers/setBackgroundAsSecondary.ts";
+
+setBackgroundAsSecondary();
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <AppRoot>
+      <App />
+    </AppRoot>
+  </React.StrictMode>
+);
